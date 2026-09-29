@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Speeky — тренажёр дикции и уверенной речи</title>
+  <meta name="description" content="Speeky — тренировка дикции и уверенной речи Алёночки: практика в реальных жизненных сценариях с персональными инструкциями." />
+  <meta name="theme-color" content="#4A90E2" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Speeky" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#app">Перейти к содержимому</a>
+
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__mark">Speeky</div>
+    <div class="loader__bar"><span></span></div>
+  </div>
+
+  <div class="orbs" aria-hidden="true">
+    <span class="orb orb--1"></span>
+    <span class="orb orb--2"></span>
+    <span class="orb orb--3"></span>
+  </div>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a class="brand" href="#/">
+        <span class="brand__dot" aria-hidden="true"></span>
+        <span class="brand__name">Speeky</span>
+      </a>
+      <nav class="nav" aria-label="Основная навигация">
+        <a class="nav__link" href="#/" data-nav="lobby">Главная</a>
+        <a class="nav__link" href="#/scenarios" data-nav="scenarios">Сценарии</a>
+        <a class="nav__link" href="#/progress" data-nav="progress">Прогресс</a>
+      </nav>
+      <div class="header__actions">
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Переключить светлую и тёмную тему" title="Светлая / тёмная тема">
+          <span class="icon-btn__icon" id="theme-icon" aria-hidden="true">🌙</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main" id="app">
+    <section class="screen container" id="screen-lobby" data-screen="lobby">
+      <div class="hero">
+        <p class="hero__eyebrow">🎤 Тренажёр речи и уверенности</p>
+        <h1 class="hero__title">Привет, Алёночка!</h1>
+        <p class="hero__text">
+          Speeky — это твой личный тренажёр дикции и уверенной речи. Выбирай жизненную
+          ситуацию, получай понятный план выступления и говори вслух. Мы подскажем, как
+          звучать убедительнее, и сохраним каждый твой шаг.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--primary btn--lg" href="#/scenarios">Начать тренировку</a>
+          <a class="btn btn--ghost btn--lg" href="#/progress">Мой прогресс</a>
+        </div>
+        <ul class="hero__stats" id="hero-stats"></ul>
+      </div>
+
+      <div class="grid grid--2">
+        <article class="card card--soft">
+          <h2 class="card__title">Как это работает</h2>
+          <ol class="steps">
+            <li class="steps__item">
+              <span class="steps__num" aria-hidden="true">1</span>
+              <div class="steps__body">
+                <strong>Выбираешь сценарий</strong>
+                <p>Презентация, совещание, переговоры, светская беседа — 8 живых ситуаций.</p>
+              </div>
+            </li>
+            <li class="steps__item">
+              <span class="steps__num" aria-hidden="true">2</span>
+              <div class="steps__body">
+                <strong>Выбираешь роль</strong>
+                <p>Инициатор, респондент или модератор — от этого зависит твоя задача.</p>
+              </div>
+            </li>
+            <li class="steps__item">
+              <span class="steps__num" aria-hidden="true">3</span>
+              <div class="steps__body">
+                <strong>Говоришь вслух по таймеру</strong>
+                <p>Цель, инструкция и шпаргалка — всё перед глазами, никакой подготовки.</p>
+              </div>
+            </li>
+            <li class="steps__item">
+              <span class="steps__num" aria-hidden="true">4</span>
+              <div class="steps__body">
+                <strong>Получаешь поддержку и прогресс</strong>
+                <p>Статистика речи, бейджи и сохранение истории прямо в браузере.</p>
+              </div>
+            </li>
+          </ol>
+        </article>
+
+        <div class="stack">
+          <article class="card card--soft">
+            <div class="card__head">
+              <h2 class="card__title">Последние тренировки</h2>
+              <a class="link" href="#/progress">Весь прогресс</a>
+            </div>
+            <div id="last-trainings"></div>
+          </article>
+          <article class="card card--accent" id="tip-of-day"></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen container" id="screen-scenarios" data-screen="scenarios">
+      <div class="screen__head">
+        <p class="screen__eyebrow">Шаг 1 из 2</p>
+        <h1 class="screen__title">Выбери сценарий, Алёночка</h1>
+        <p class="screen__text">Каждая ситуация — это отдельный навык. Начни с той, что ближе к твоему дню.</p>
+      </div>
+      <div class="grid grid--3" id="scenarios-grid"></div>
+    </section>
+
+    <section class="screen container" id="screen-roles" data-screen="roles">
+      <button class="back-link" type="button" data-back="scenarios">← Другой сценарий</button>
+      <div class="screen__head">
+        <p class="screen__eyebrow">Шаг 2 из 2</p>
+        <h1 class="screen__title" id="roles-title">Выбери свою роль</h1>
+        <p class="screen__text" id="roles-text"></p>
+      </div>
+      <div class="grid grid--3" id="roles-grid"></div>
+    </section>
+
+    <section class="screen container" id="screen-training" data-screen="training">
+      <div id="training-root"></div>
+    </section>
+
+    <section class="screen container" id="screen-results" data-screen="results">
+      <div id="results-root"></div>
+    </section>
+
+    <section class="screen container" id="screen-progress" data-screen="progress">
+      <div class="screen__head">
+        <p class="screen__eyebrow">Личный кабинет</p>
+        <h1 class="screen__title">Твой прогресс, Алёночка</h1>
+        <p class="screen__text">Здесь видно, как растёт твоя уверенность — тренировка за тренировкой.</p>
+      </div>
+      <div id="progress-root"></div>
+    </section>
+
+  </main>
+
+  <nav class="tabbar" aria-label="Быстрая навигация">
+    <a class="tabbar__link nav__link" href="#/" data-nav="lobby">
+      <span class="tabbar__icon" aria-hidden="true">🏠</span>
+      <span class="tabbar__label">Главная</span>
+    </a>
+    <a class="tabbar__link nav__link" href="#/scenarios" data-nav="scenarios">
+      <span class="tabbar__icon" aria-hidden="true">🎭</span>
+      <span class="tabbar__label">Сценарии</span>
+    </a>
+    <a class="tabbar__link nav__link" href="#/progress" data-nav="progress">
+      <span class="tabbar__icon" aria-hidden="true">📈</span>
+      <span class="tabbar__label">Прогресс</span>
+    </a>
+  </nav>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>Speeky — тренируйся в своём темпе. Прогресс хранится только в твоём браузере.</p>
+      <button class="link link--danger" type="button" id="reset-progress">Сбросить прогресс</button>
+    </div>
+  </footer>
+
+  <div class="toast-root" id="toast-root" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="js/utils.js" defer></script>
+  <script src="js/scenarios.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>
